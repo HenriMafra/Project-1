@@ -1,25 +1,34 @@
-/* Definições de Variáveis e Reset Básico */
-:root {
-    /* Paleta de Cores: Profissionalismo, Acessibilidade e Confiança */
-    --color-primary: #004d40; /* Azul Petróleo Escuro (Quase Verde Escuro) */
-    --color-primary-light: #00897b; /* Versão mais clara */
-    --color-secondary: #f5f5f5; /* Bege/Cinza Claro (Fundo) */
-    --color-text-dark: #212121; /* Texto Principal */
-    --color-text-light: #ffffff; /* Texto em fundos escuros */
-    --color-accent: #ffb300; /* Âmbar (Acento para CTAs) */
-    --color-accent-hover: #ffc107; /* Âmbar mais claro no hover */
-    --color-border-subtle: #e0e0e0; /* Borda/Divisor sutil */
+/* ========================================
+   VARIÁVEIS CSS E CONFIGURAÇÕES GLOBAIS
+   ======================================== */
 
-    /* Tipografia e Tamanhos */
+:root {
+    /* Cores */
+    --color-primary: #004d40;
+    --color-primary-light: #00897b;
+    --color-secondary: #f5f5f5;
+    --color-text-dark: #212121;
+    --color-text-light: #ffffff;
+    --color-accent: #ffb300;
+    --color-accent-hover: #ffc107;
+    --color-border-subtle: #e0e0e0;
+    
+    /* Tipografia */
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
-    --font-size-base: 1.125rem; /* 18px base para desktop */
+    --font-size-base: 1.125rem;
+    
+    /* Espaçamento e Layout */
     --space-unit: 1rem;
     --border-radius-md: 8px;
     --transition-speed: 0.3s;
 }
 
-/* Reset e Configurações Globais */
+
+/* ========================================
+   RESET E BASE
+   ======================================== */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -28,7 +37,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px; /* Base para rem */
+    font-size: 16px;
 }
 
 body {
@@ -39,22 +48,49 @@ body {
     min-height: 100vh;
 }
 
-/* Unidades Relativas e Fluidas */
+
+/* ========================================
+   TIPOGRAFIA
+   ======================================== */
+
 h1 { font-size: clamp(2.5rem, 5vw + 1rem, 4rem); }
 h2 { font-size: clamp(2rem, 4vw + 0.5rem, 3rem); }
 h3 { font-size: clamp(1.5rem, 3vw + 0.3rem, 2rem); }
 p { font-size: var(--font-size-base); }
 
-/* Conteiner Centralizador */
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: calc(var(--space-unit) * 3);
+    font-weight: 900;
+}
+
+
+/* ========================================
+   LAYOUT E CONTAINER
+   ======================================== */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--space-unit) calc(var(--space-unit) * 2); /* Padding generoso */
+    padding: 0 var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-/* ---------------------------------- */
-/* ELEMENTOS COMUNS E BOTÕES */
-/* ---------------------------------- */
+section {
+    padding: calc(var(--space-unit) * 4) 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: calc(var(--space-unit) * 4) 0;
+}
+
+
+/* ========================================
+   LINKS E BOTÕES
+   ======================================== */
 
 a {
     text-decoration: none;
@@ -84,7 +120,8 @@ a:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:focus {
     background-color: var(--color-accent-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -96,31 +133,39 @@ a:hover {
     border: 1px solid var(--color-primary);
 }
 
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover,
+.btn-secondary:focus {
     background-color: var(--color-primary-light);
     transform: scale(1.02);
 }
 
-.icon-lg { font-size: 2.5rem; color: var(--color-primary-light); }
-.icon-md { font-size: 1.8rem; color: var(--color-primary-light); }
-
-/* Títulos de Seção */
-.section-title {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: calc(var(--space-unit) * 3);
-    font-weight: 900;
+.btn-cta {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid var(--color-border-subtle);
-    margin: calc(var(--space-unit) * 4) 0;
+
+/* ========================================
+   ÍCONES
+   ======================================== */
+
+.icon-lg { 
+    font-size: 2.5rem; 
+    color: var(--color-primary-light); 
 }
 
-/* Animações (Visibilidade inicial) */
-.fade-in, .slide-up {
+.icon-md { 
+    font-size: 1.8rem; 
+    color: var(--color-primary-light); 
+}
+
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+.fade-in,
+.slide-up {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -137,9 +182,20 @@ hr {
 .delay-400 { transition-delay: 0.4s; }
 .delay-600 { transition-delay: 0.6s; }
 
-/* ---------------------------------- */
-/* HEADER E NAVEGAÇÃO */
-/* ---------------------------------- */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse-effect {
+    animation: pulse 0.5s ease-in-out;
+}
+
+
+/* ========================================
+   HEADER E NAVEGAÇÃO
+   ======================================== */
 
 .main-header {
     background-color: var(--color-text-light);
@@ -177,7 +233,7 @@ hr {
     color: var(--color-text-dark);
 }
 
-.main-nav a::after { /* Sublinhado elegante */
+.main-nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -191,6 +247,11 @@ hr {
 .main-nav a:hover::after {
     width: 100%;
 }
+
+
+/* ========================================
+   CARRINHO - BOTÃO
+   ======================================== */
 
 .cart-button {
     background: none;
@@ -225,11 +286,15 @@ hr {
     opacity: 0;
     transition: opacity var(--transition-speed);
 }
-.cart-counter.active { opacity: 1; }
 
-/* ---------------------------------- */
-/* SIDEBAR DO CARRINHO */
-/* ---------------------------------- */
+.cart-counter.active { 
+    opacity: 1; 
+}
+
+
+/* ========================================
+   CARRINHO - SIDEBAR
+   ======================================== */
 
 .cart-sidebar {
     position: fixed;
@@ -275,6 +340,12 @@ hr {
     padding-right: 10px;
 }
 
+.empty-cart-message {
+    text-align: center;
+    color: #9e9e9e;
+    padding: 2rem 0;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -302,7 +373,10 @@ hr {
     margin-left: 10px;
     transition: color var(--transition-speed);
 }
-.remove-item:hover { color: #d32f2f; }
+
+.remove-item:hover { 
+    color: #d32f2f; 
+}
 
 .cart-footer {
     padding-top: 1.5rem;
@@ -319,19 +393,16 @@ hr {
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
+
 .total-value {
     color: var(--color-primary);
 }
 
-/* ---------------------------------- */
-/* SEÇÕES PRINCIPAIS */
-/* ---------------------------------- */
 
-section {
-    padding: calc(var(--space-unit) * 4) 0;
-}
+/* ========================================
+   HERO SECTION
+   ======================================== */
 
-/* HERO SECTION */
 .hero {
     background-color: var(--color-text-light);
     min-height: 80vh;
@@ -365,12 +436,11 @@ section {
     margin-right: auto;
 }
 
-.btn-cta {
-    font-size: 1.2rem;
-    padding: 1rem 3rem;
-}
 
-/* PROPÓSITO E NEGÓCIOS */
+/* ========================================
+   PURPOSE SECTION
+   ======================================== */
+
 .purpose-section {
     text-align: center;
 }
@@ -383,7 +453,8 @@ section {
     margin: 0 auto;
 }
 
-.text-block, .pricing-block {
+.text-block,
+.pricing-block {
     flex: 1;
     max-width: 400px;
     padding: calc(var(--space-unit) * 2);
@@ -412,11 +483,15 @@ section {
     line-height: 1.2;
 }
 
+.price-value {
+    display: block;
+}
+
 .price-detail {
     display: block;
     font-size: 1rem;
     font-weight: 400;
-    color: #a7ffeb; /* Tom de verde claro */
+    color: #a7ffeb;
 }
 
 .detail-text {
@@ -424,7 +499,15 @@ section {
     margin-top: 0.5rem;
 }
 
-/* BENEFÍCIOS PEDAGÓGICOS */
+
+/* ========================================
+   BENEFITS SECTION
+   ======================================== */
+
+.benefits-section {
+    background-color: var(--color-secondary);
+}
+
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -445,7 +528,15 @@ section {
     color: var(--color-text-dark);
 }
 
-/* GALERIA DE GUIAS */
+
+/* ========================================
+   GUIDES SECTION
+   ======================================== */
+
+.guides-section {
+    background-color: var(--color-secondary);
+}
+
 .guides-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -478,7 +569,7 @@ section {
 .guide-description {
     font-size: 1rem;
     margin-bottom: var(--space-unit);
-    flex-grow: 1; /* Garante que o footer fique alinhado */
+    flex-grow: 1;
 }
 
 .guide-footer {
@@ -500,7 +591,11 @@ section {
     margin-top: calc(var(--space-unit) * 3);
 }
 
-/* COMO FUNCIONA */
+
+/* ========================================
+   HOW IT WORKS SECTION
+   ======================================== */
+
 .how-it-works-section {
     background-color: var(--color-text-light);
 }
@@ -537,7 +632,11 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* DEPOIMENTOS */
+
+/* ========================================
+   TESTIMONIALS SECTION
+   ======================================== */
+
 .testimonials-section {
     background-color: var(--color-secondary);
 }
@@ -570,15 +669,25 @@ section {
     font-size: 0.9rem;
 }
 
-/* CONTATO */
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
 .contact-section {
     background-color: var(--color-primary);
     color: var(--color-text-light);
     padding: calc(var(--space-unit) * 4) 0;
 }
 
-.contact-section .section-title, .contact-section .subtitle-contact {
+.contact-section .section-title,
+.contact-section .subtitle-contact {
     color: var(--color-text-light);
+}
+
+.subtitle-contact {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .contact-form {
@@ -599,19 +708,21 @@ section {
     font-weight: 600;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #4db6ac;
     border-radius: 4px;
     font-family: var(--font-body);
     font-size: 1rem;
-    background-color: #e0f2f1; /* Fundo claro para input */
+    background-color: #e0f2f1;
     color: var(--color-text-dark);
     transition: border-color var(--transition-speed);
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     border-color: var(--color-accent);
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.3);
@@ -620,11 +731,13 @@ section {
 .form-feedback {
     margin-top: 1rem;
     font-weight: 600;
+    text-align: center;
 }
 
-/* ---------------------------------- */
-/* FOOTER */
-/* ---------------------------------- */
+
+/* ========================================
+   FOOTER
+   ======================================== */
 
 .main-footer {
     background-color: var(--color-text-dark);
@@ -666,9 +779,9 @@ section {
 }
 
 
-/* ---------------------------------- */
-/* RESPONSIVIDADE (MOBILE E TABLET) */
-/* ---------------------------------- */
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
 
 @media (max-width: 1024px) {
     .main-nav ul {
@@ -677,16 +790,14 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Navegação */
     .main-nav {
-        display: none; /* Em um cenário real, usaria um menu hamburguer */
+        display: none;
     }
 
     .nav-content {
         padding: 1rem var(--space-unit);
     }
     
-    /* Hero */
     .hero {
         min-height: 60vh;
     }
@@ -699,19 +810,20 @@ section {
         padding: 0.8rem 2rem;
     }
 
-    /* Propósito */
     .purpose-content {
         flex-direction: column;
     }
-    .text-block, .pricing-block {
+    
+    .text-block,
+    .pricing-block {
         max-width: 100%;
         margin-bottom: 1rem;
     }
+    
     .pricing-block {
         padding: 1.5rem;
     }
 
-    /* Footer */
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -731,12 +843,17 @@ section {
     .cart-sidebar {
         max-width: 100%;
     }
+    
     .hero-subtitle {
         font-size: 1.1rem;
     }
 }
 
-/* Foco e Acessibilidade (Contraste) */
+
+/* ========================================
+   ACESSIBILIDADE
+   ======================================== */
+
 :focus {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
