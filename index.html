@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+<!-- ========================================
+     HEAD - META TAGS E RECURSOS EXTERNOS
+     ======================================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saber Simples | Seu Guia para o Conhecimento Acessível</title>
     <meta name="description" content="Guias práticos e absurdamente didáticos para concursos, exames e certificações. Conteúdo rigorosamente organizado por apenas R$1.">
+    
+    <!-- Fontes do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
+
+    <!-- ========================================
+         HEADER - NAVEGAÇÃO PRINCIPAL
+         ======================================== -->
     <header class="main-header">
         <div class="container nav-content">
             <a href="#inicio" class="logo">Saber Simples</a>
+            
             <nav class="main-nav" aria-label="Navegação Principal do Site">
                 <ul>
                     <li><a href="#inicio">Início</a></li>
@@ -21,32 +37,61 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
-            <button class="cart-button" aria-controls="cart-sidebar" aria-label="Abrir Carrinho de Compras" tabindex="0" onclick="toggleCartSidebar()">
+            
+            <button class="cart-button" 
+                    aria-controls="cart-sidebar" 
+                    aria-label="Abrir Carrinho de Compras" 
+                    tabindex="0" 
+                    onclick="toggleCartSidebar()">
                 <i class="fas fa-shopping-cart"></i>
                 <span id="cart-counter" class="cart-counter">0</span>
             </button>
         </div>
     </header>
 
-    <aside id="cart-sidebar" class="cart-sidebar" aria-modal="true" role="dialog" aria-label="Carrinho de Compras">
+
+    <!-- ========================================
+         SIDEBAR - CARRINHO DE COMPRAS
+         ======================================== -->
+    <aside id="cart-sidebar" 
+           class="cart-sidebar" 
+           aria-modal="true" 
+           role="dialog" 
+           aria-label="Carrinho de Compras">
+        
         <div class="cart-header">
             <h3>🛒 Seu Carrinho</h3>
-            <button class="close-cart" aria-label="Fechar Carrinho" onclick="toggleCartSidebar()">×</button>
+            <button class="close-cart" 
+                    aria-label="Fechar Carrinho" 
+                    onclick="toggleCartSidebar()">×</button>
         </div>
+        
         <div id="cart-items" class="cart-items-list">
             <p class="empty-cart-message">Seu carrinho está vazio.</p>
         </div>
+        
         <div class="cart-footer">
             <div class="cart-total-info">
                 <span>Total:</span>
                 <span id="cart-total-value" class="total-value">R$ 0,00</span>
             </div>
-            <button class="btn btn-primary" id="checkout-btn" disabled onclick="finalizarCompra()">Finalizar Compra</button>
-            <button class="btn btn-secondary" id="clear-cart-btn" onclick="limparCarrinho()">Limpar Carrinho</button>
+            <button class="btn btn-primary" 
+                    id="checkout-btn" 
+                    disabled 
+                    onclick="finalizarCompra()">Finalizar Compra</button>
+            <button class="btn btn-secondary" 
+                    id="clear-cart-btn" 
+                    onclick="limparCarrinho()">Limpar Carrinho</button>
         </div>
     </aside>
 
+
+    <!-- ========================================
+         MAIN - CONTEÚDO PRINCIPAL
+         ======================================== -->
     <main>
+
+        <!-- HERO SECTION -->
         <section id="inicio" class="hero fade-in">
             <div class="container">
                 <h1 class="hero-title">Transforme Estudo em Resultado **Real**</h1>
@@ -57,13 +102,16 @@
 
         <hr>
 
+        <!-- PURPOSE SECTION -->
         <section class="purpose-section fade-in">
             <div class="container">
                 <h2 class="section-title">✨ Conhecimento Acessível, Sem Surpresas</h2>
                 <div class="purpose-content">
+                    
                     <article class="text-block">
                         <p>Nosso propósito é **democratizar o acesso** a materiais de estudo de **altíssima qualidade**. Acreditamos que o conhecimento rigorosamente organizado não deve ser um luxo.</p>
                     </article>
+                    
                     <article class="pricing-block">
                         <p class="price-highlight">
                             <span class="price-value">R$ 1,00</span>
@@ -71,86 +119,117 @@
                         </p>
                         <p class="detail-text">Preço único, sem descontos, promoções ou mensalidades. Acesso direto e honesto ao que realmente importa: **seu aprendizado**.</p>
                     </article>
+                    
                 </div>
             </div>
         </section>
 
         <hr>
 
+        <!-- BENEFITS SECTION -->
         <section class="benefits-section fade-in">
             <div class="container">
                 <h2 class="section-title">🧠 A Excelência Pedagógica que Você Merece</h2>
                 <div class="benefits-grid">
+                    
                     <div class="benefit-card slide-up">
                         <i class="fas fa-magic icon-lg"></i>
                         <h3>Clareza Mágica</h3>
                         <p>Transformamos conceitos complexos em mensagens simples, diretas e fáceis de assimilar.</p>
                     </div>
+                    
                     <div class="benefit-card slide-up delay-200">
                         <i class="fas fa-sitemap icon-lg"></i>
                         <h3>Organização Rigorosa</h3>
                         <p>Conteúdo estruturado para otimizar a memorização e a construção lógica do conhecimento.</p>
                     </div>
+                    
                     <div class="benefit-card slide-up delay-400">
                         <i class="fas fa-tools icon-lg"></i>
                         <h3>Aplicação Prática</h3>
                         <p>Foco total no *como fazer*. Prepare-se para aplicar o que aprendeu na vida real ou em provas.</p>
                     </div>
+                    
                     <div class="benefit-card slide-up delay-600">
                         <i class="fas fa-globe-americas icon-lg"></i>
                         <h3>Acessível a Todos</h3>
                         <p>Linguagem pensada para iniciantes, mas com a profundidade que o nível avançado exige.</p>
                     </div>
+                    
                 </div>
             </div>
         </section>
 
         <hr>
 
+        <!-- GUIDES SECTION -->
         <section id="guias" class="guides-section fade-in">
             <div class="container">
                 <h2 class="section-title">📚 Escolha seus Guias por R$1</h2>
                 <div id="guides-grid" class="guides-grid">
-                    <article class="guide-card slide-up" data-id="form_pc" data-name="Manual de Formatação de PC" data-price="1.00">
+                    
+                    <!-- Guia 1: Formatação de PC -->
+                    <article class="guide-card slide-up" 
+                             data-id="form_pc" 
+                             data-name="Manual de Formatação de PC" 
+                             data-price="1.00">
                         <i class="fas fa-laptop-code icon-md"></i>
                         <h3 class="guide-title">Manual de Formatação de PC</h3>
                         <p class="guide-description">Guia definitivo, da instalação do SO à resolução de erros. Linguagem clara e acessível para todos os níveis. Domine seu computador!</p>
                         <div class="guide-footer">
                             <span class="guide-price">R$ 1,00</span>
-                            <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Manual de Formatação de PC ao Carrinho">Adicionar ao Carrinho</button>
+                            <button class="btn btn-secondary add-to-cart" 
+                                    aria-label="Adicionar Manual de Formatação de PC ao Carrinho">Adicionar ao Carrinho</button>
                         </div>
                     </article>
 
-                    <article class="guide-card slide-up delay-100" data-id="build_cel" data-name="Guia Completo de Construção de Celular" data-price="1.00">
+                    <!-- Guia 2: Construção de Celular -->
+                    <article class="guide-card slide-up delay-100" 
+                             data-id="build_cel" 
+                             data-name="Guia Completo de Construção de Celular" 
+                             data-price="1.00">
                         <i class="fas fa-mobile-alt icon-md"></i>
                         <h3 class="guide-title">Guia Completo de Construção de Celular</h3>
                         <p class="guide-description">Detalha cada componente e etapa de montagem de um celular. Recursos visuais que facilitam o aprendizado prático e profundo.</p>
                         <div class="guide-footer">
                             <span class="guide-price">R$ 1,00</span>
-                            <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Guia Completo de Construção de Celular ao Carrinho">Adicionar ao Carrinho</button>
+                            <button class="btn btn-secondary add-to-cart" 
+                                    aria-label="Adicionar Guia Completo de Construção de Celular ao Carrinho">Adicionar ao Carrinho</button>
                         </div>
                     </article>
                     
-                    <article class="guide-card slide-up delay-200" data-id="concurso_port" data-name="Português para Concursos Nível A1" data-price="1.00">
+                    <!-- Guia 3: Português para Concursos -->
+                    <article class="guide-card slide-up delay-200" 
+                             data-id="concurso_port" 
+                             data-name="Português para Concursos Nível A1" 
+                             data-price="1.00">
                         <i class="fas fa-pen-nib icon-md"></i>
                         <h3 class="guide-title">Português para Concursos Nível A1</h3>
                         <p class="guide-description">Simplifique a gramática para gabaritar sua prova. Foco absoluto no que realmente cai em concursos, sem enrolação.</p>
                         <div class="guide-footer">
                             <span class="guide-price">R$ 1,00</span>
-                            <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Português para Concursos Nível A1 ao Carrinho">Adicionar ao Carrinho</button>
+                            <button class="btn btn-secondary add-to-cart" 
+                                    aria-label="Adicionar Português para Concursos Nível A1 ao Carrinho">Adicionar ao Carrinho</button>
                         </div>
                     </article>
 
-                    <article class="guide-card slide-up delay-300" data-id="enem_fisica" data-name="Física Descomplicada para o ENEM" data-price="1.00">
+                    <!-- Guia 4: Física ENEM -->
+                    <article class="guide-card slide-up delay-300" 
+                             data-id="enem_fisica" 
+                             data-name="Física Descomplicada para o ENEM" 
+                             data-price="1.00">
                         <i class="fas fa-atom icon-md"></i>
                         <h3 class="guide-title">Física Descomplicada para o ENEM</h3>
                         <p class="guide-description">Chega de medo de fórmulas. Aprenda os conceitos chave e resolva as questões mais difíceis com nossa didática inigualável.</p>
                         <div class="guide-footer">
                             <span class="guide-price">R$ 1,00</span>
-                            <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Física Descomplicada para o ENEM ao Carrinho">Adicionar ao Carrinho</button>
+                            <button class="btn btn-secondary add-to-cart" 
+                                    aria-label="Adicionar Física Descomplicada para o ENEM ao Carrinho">Adicionar ao Carrinho</button>
                         </div>
                     </article>
+                    
                 </div>
+                
                 <div class="cta-bottom">
                     <p>Milhares de guias esperando para simplificar seu estudo.</p>
                     <a href="#como-funciona" class="btn btn-primary">Ver Como Funciona</a>
@@ -160,89 +239,140 @@
 
         <hr>
 
+        <!-- HOW IT WORKS SECTION -->
         <section id="como-funciona" class="how-it-works-section fade-in">
             <div class="container">
                 <h2 class="section-title">🎯 Sua Jornada em 3 Passos Simples</h2>
                 <div class="steps-grid">
+                    
                     <div class="step-card slide-up">
                         <span class="step-number">1</span>
                         <h3>Escolha e Adicione</h3>
                         <p>Navegue pela galeria de guias e adicione ao carrinho todos aqueles que irão turbinar seu conhecimento.</p>
                     </div>
+                    
                     <div class="step-card slide-up delay-200">
                         <span class="step-number">2</span>
                         <h3>Revise e Pague</h3>
                         <p>No carrinho, confira seus R$1 por guia, clique em "Finalizar Compra" e realize o pagamento de forma segura e transparente.</p>
                     </div>
+                    
                     <div class="step-card slide-up delay-400">
                         <span class="step-number">3</span>
                         <h3>Acesso Imediato</h3>
                         <p>O conteúdo é seu! Acesse seus guias rigorosamente organizados e comece a aprender imediatamente.</p>
                     </div>
+                    
                 </div>
             </div>
         </section>
 
         <hr>
 
+        <!-- TESTIMONIALS SECTION -->
         <section class="testimonials-section fade-in">
             <div class="container">
                 <h2 class="section-title">🗣️ Quem Já Aprendeu Simplificado</h2>
                 <div class="testimonials-grid">
+                    
                     <blockquote class="testimonial-card slide-up">
                         <p>"A didática é incrível. Finalmente entendi a matéria que me travava há meses. O R$1 mais bem investido!"</p>
                         <footer>— Ana C., Estudante de Direito</footer>
                     </blockquote>
+                    
                     <blockquote class="testimonial-card slide-up delay-200">
                         <p>"Simples, direto e sem jargões. Formatei meu notebook seguindo o manual sem NENHUM erro. Recomendo!"</p>
                         <footer>— João V., Analista de Sistemas</footer>
                     </blockquote>
+                    
                 </div>
             </div>
         </section>
 
         <hr>
 
+        <!-- CONTACT SECTION -->
         <section id="contato" class="contact-section fade-in">
             <div class="container">
                 <h2 class="section-title">✉️ Fale Conosco</h2>
                 <p class="subtitle-contact">Tire suas dúvidas ou envie sugestões. Estamos aqui para ajudar sua jornada de aprendizado.</p>
+                
                 <form id="contact-form" class="contact-form">
+                    
                     <div class="form-group">
                         <label for="name">Seu Nome:</label>
-                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Ex: Maria da Silva">
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               required 
+                               aria-required="true" 
+                               placeholder="Ex: Maria da Silva">
                     </div>
+                    
                     <div class="form-group">
                         <label for="email">Seu E-mail:</label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu.email@exemplo.com">
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               aria-required="true" 
+                               placeholder="seu.email@exemplo.com">
                     </div>
+                    
                     <div class="form-group">
                         <label for="message">Mensagem:</label>
-                        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Sua dúvida ou sugestão..."></textarea>
+                        <textarea id="message" 
+                                  name="message" 
+                                  rows="5" 
+                                  required 
+                                  aria-required="true" 
+                                  placeholder="Sua dúvida ou sugestão..."></textarea>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                     <p id="form-feedback" class="form-feedback" aria-live="polite"></p>
+                    
                 </form>
             </div>
         </section>
+
     </main>
 
+
+    <!-- ========================================
+         FOOTER - RODAPÉ
+         ======================================== -->
     <footer class="main-footer">
         <div class="container footer-content">
+            
             <div class="footer-links">
                 <a href="#">Termos de Uso</a>
                 <a href="#">Política de Privacidade</a>
                 <a href="#contato">Suporte</a>
             </div>
+            
             <p class="copyright">&copy; 2025 Saber Simples. Democratizando o conhecimento com excelência.</p>
+            
             <div class="social-icons">
-                <a href="#" aria-label="Saber Simples no Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Saber Simples no Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Saber Simples no Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Saber Simples no Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="Saber Simples no Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="Saber Simples no Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
+            
         </div>
     </footer>
 
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
     <script src="script.js"></script>
+
 </body>
 </html>
