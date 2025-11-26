@@ -3,16 +3,17 @@
    ======================================== */
 
 :root {
-    /* Cores - Nova Paleta com Alto Contraste */
-    --color-primary: #1a5490;        /* Azul profundo mais vibrante */
-    --color-primary-light: #2196F3;  /* Azul claro vibrante */
-    --color-secondary: #ffffff;      /* Branco puro para fundos */
-    --color-text-dark: #1a1a1a;      /* Preto mais suave */
-    --color-text-light: #ffffff;     /* Branco puro */
-    --color-accent: #FF6B35;         /* Laranja vibrante */
-    --color-accent-hover: #ff5722;   /* Laranja mais escuro */
-    --color-border-subtle: #d0d0d0;  /* Cinza mais visível */
-    --color-background-alt: #f8f9fa; /* Cinza muito claro para alternância */
+    /* Cores atualizadas com alto contraste e harmonia */
+    --color-primary: #0d3b66;           /* Azul profundo elegante */
+    --color-primary-light: #1479cc;     /* Azul vibrante para destaques */
+    --color-secondary: #f9fafb;         /* Branco suave para fundos */
+    --color-text-dark: #2c2c2c;         /* Preto suave para texto principal */
+    --color-text-light: #f9fafb;        /* Branco suave para textos claros */
+    --color-accent: #ff5a1f;            /* Laranja vibrante e harmônico */
+    --color-accent-hover: #e44d16;      /* Laranja escuro para hover */
+    --color-border-subtle: #c1c7cd;     /* Cinza médio para bordas */
+    --color-background-alt: #e8ebef;    /* Cinza claro com tom azul */
+    --color-background: #f6f8fc;        /* Fundo principal suavizado */
     
     /* Tipografia */
     --font-heading: 'Montserrat', sans-serif;
@@ -45,7 +46,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: #f0f2f5;
+    background-color: var(--color-background);
     min-height: 100vh;
 }
 
@@ -95,7 +96,7 @@ hr {
 
 a {
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     transition: color var(--transition-speed);
 }
 
@@ -117,7 +118,7 @@ a:hover {
 
 .btn-primary {
     background-color: var(--color-accent);
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -948,7 +949,7 @@ a:hover {
     background-color: var(--color-accent);
     border: none;
     border-radius: 50px;
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
