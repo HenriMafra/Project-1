@@ -4,1049 +4,521 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guias do Stargo | Seu Guia para o Conhecimento Acessível</title>
-  <meta name="description" content="Guias práticos e absurdamente didáticos para concursos, exames e certificações. Conteúdo rigorosamente organizado por apenas R$1." />
-  
-  <!-- Fontes do Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  
+  <title>Guias do Stargo | Conhecimento Ilimitado a R$1</title>
+  <meta name="description" content="Guias práticos sobre qualquer assunto: tecnologia, culinária, mecânica e estudos. Tudo por R$1 fixo." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
-    /* ========================================
-       VARIÁVEIS CSS E CONFIGURAÇÕES GLOBAIS
-       ======================================== */
-
     :root {
-      /* Cores atualizadas com alto contraste e harmonia */
-      --color-primary: #0d3b66;
-      --color-primary-light: #1479cc;
-      --color-secondary: #f9fafb;
-      --color-text-dark: #2c2c2c;
-      --color-text-light: #f9fafb;
-      --color-accent: #ff5a1f;
-      --color-accent-hover: #e44d16;
-      --color-border-subtle: #c1c7cd;
-      --color-background-alt: #e8ebef;
-      --color-background: #f6f8fc;
+      /* Paleta de Cores Otimizada */
+      --primary: #0f172a;       /* Azul Noturno (Sofisticação) */
+      --primary-light: #334155; /* Cinza Azulado */
+      --accent: #f59e0b;        /* Âmbar (Atenção/Preço) */
+      --accent-hover: #d97706;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --success: #10b981;
 
-      /* Tipografia */
+      /* Espaçamentos e Bordas */
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Inter', sans-serif;
-      --font-size-base: 1.125rem;
-
-      /* Espaçamento e Layout */
-      --space-unit: 1rem;
-      --border-radius-md: 8px;
-      --transition-speed: 0.3s;
     }
 
-    /* ========================================
-       RESET E BASE
-       ======================================== */
+    /* --- Reset e Base --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+    
+    h1, h2, h3 { font-family: var(--font-heading); color: var(--primary); line-height: 1.2; }
+    p { color: var(--text-muted); }
+    a { text-decoration: none; transition: 0.3s; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
 
-    *, *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* --- Utilitários --- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; gap: 0.5rem; }
+    .btn-primary { background: var(--accent); color: white; box-shadow: var(--shadow-md); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+    .btn-outline:hover { background: var(--primary); color: white; }
+    .section-padding { padding: 4rem 0; }
+
+    /* --- Header & Nav --- */
+    .header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); font-family: var(--font-heading); display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--accent); }
+    
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-actions { display: flex; align-items: center; gap: 1rem; }
+    .cart-btn { position: relative; font-size: 1.25rem; color: var(--primary); background: none; border: none; cursor: pointer; }
+    .cart-count { position: absolute; top: -5px; right: -8px; background: var(--accent); color: white; font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    
+    .mobile-toggle { display: none; font-size: 1.5rem; background: none; border: none; color: var(--primary); cursor: pointer; }
+
+    /* --- Hero Section --- */
+    .hero { text-align: center; padding: 6rem 0 4rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative; overflow: hidden; }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+    .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem; }
+    .hero-highlight { color: var(--accent); position: relative; display: inline-block; }
+    .hero-highlight::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(245, 158, 11, 0.2); z-index: -1; }
+
+    /* --- Search & Filter --- */
+    .search-container { max-width: 600px; margin: 0 auto 3rem; position: relative; }
+    .search-input { width: 100%; padding: 1rem 1.5rem; padding-left: 3rem; border-radius: 50px; border: 2px solid #e2e8f0; font-size: 1rem; transition: border 0.3s; font-family: var(--font-body); }
+    .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1); }
+    .search-icon { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+
+    .filters { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn { padding: 0.5rem 1.2rem; border-radius: 20px; border: 1px solid #e2e8f0; background: white; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; color: var(--text-muted); }
+    .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* --- Cards Grid --- */
+    .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: var(--bg-card); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-sm); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; position: relative; border: 1px solid #f1f5f9; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+    
+    .card-icon { width: 50px; height: 50px; background: rgba(15, 23, 42, 0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; }
+    .card-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-main); }
+    .card p { font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
+    .price-tag { font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--primary); }
+    .add-btn { background: var(--primary); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; transition: 0.2s; }
+    .add-btn:hover { background: var(--accent); transform: scale(1.1); }
+
+    /* --- Sidebar Cart --- */
+    .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s; }
+    .cart-overlay.open { opacity: 1; visibility: visible; }
+    
+    .cart-sidebar { position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100%; background: white; z-index: 2000; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: -5px 0 25px rgba(0,0,0,0.1); }
+    .cart-sidebar.open { transform: translateX(0); }
+    
+    .cart-header { padding: 1.5rem; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .cart-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+    .cart-footer { padding: 1.5rem; border-top: 1px solid #e2e8f0; background: #f8fafc; }
+    
+    .cart-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px dashed #e2e8f0; animation: fadeIn 0.3s; }
+    .cart-item-info { flex: 1; }
+    .cart-item-title { font-weight: 600; font-size: 0.95rem; color: var(--primary); }
+    .cart-item-price { font-size: 0.85rem; color: var(--text-muted); }
+    .cart-remove { color: #ef4444; background: none; border: none; cursor: pointer; padding: 0.5rem; transition: 0.2s; }
+    .cart-remove:hover { color: #dc2626; background: #fee2e2; border-radius: 4px; }
+
+    .total-row { display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 1rem; }
+
+    /* --- Footer --- */
+    .footer { background: var(--primary); color: #cbd5e1; padding: 4rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer h4 { color: white; margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .footer ul li { margin-bottom: 0.8rem; }
+    .footer a { color: #cbd5e1; }
+    .footer a:hover { color: var(--accent); }
+    .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+    /* --- Notification Toast --- */
+    .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 3000; display: flex; align-items: center; gap: 10px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast i { color: var(--success); }
+
+    /* --- Mobile Responsive --- */
+    @media (max-width: 768px) {
+      .nav-links { position: fixed; top: 80px; left: 0; width: 100%; background: white; flex-direction: column; padding: 2rem; box-shadow: 0 10px 10px rgba(0,0,0,0.05); transform: translateY(-150%); transition: 0.3s; z-index: 999; }
+      .nav-links.active { transform: translateY(0); }
+      .mobile-toggle { display: block; }
+      .hero h1 { font-size: 2.2rem; }
+      .search-container { padding: 0 1rem; }
     }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: var(--font-body);
-      line-height: 1.6;
-      color: var(--color-text-dark);
-      background-color: var(--color-background);
-      min-height: 100vh;
-    }
-
-    /* ========================================
-       TIPOGRAFIA
-       ======================================== */
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw + 0.5rem, 3rem);
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw + 0.3rem, 2rem);
-    }
-
-    p {
-      font-size: var(--font-size-base);
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      color: var(--color-primary);
-      text-align: center;
-      margin-bottom: calc(var(--space-unit) * 3);
-      font-weight: 900;
-    }
-
-    /* ========================================
-       LAYOUT E CONTAINER
-       ======================================== */
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-unit) calc(var(--space-unit) * 2);
-    }
-
-    section {
-      padding: calc(var(--space-unit) * 4) 0;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--color-border-subtle);
-      margin: calc(var(--space-unit) * 4) 0;
-    }
-
-    /* ========================================
-       LINKS E BOTÕES
-       ======================================== */
-
-    a {
-      text-decoration: none;
-      color: var(--color-primary-light);
-      transition: color var(--transition-speed);
-    }
-
-    a:hover {
-      color: var(--color-accent);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      border: none;
-      transition: all var(--transition-speed);
-    }
-
-    .btn-primary {
-      background-color: var(--color-accent);
-      color: var(--color-text-light);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background-color: var(--color-accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-secondary {
-      background-color: var(--color-primary);
-      color: var(--color-text-light);
-      border: 1px solid var(--color-primary);
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus {
-      background-color: var(--color-primary-light);
-      transform: scale(1.02);
-    }
-
-    .btn-cta {
-      font-size: 1.2rem;
-      padding: 1rem 3rem;
-    }
-
-    /* ========================================
-       ÍCONES
-       ======================================== */
-
-    .icon-lg {
-      font-size: 2.5rem;
-      color: var(--color-primary-light);
-    }
-
-    .icon-md {
-      font-size: 1.8rem;
-      color: var(--color-primary-light);
-    }
-
-    /* ========================================
-       ANIMAÇÕES
-       ======================================== */
-
-    .fade-in,
-    .slide-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-100 {
-      transition-delay: 0.1s;
-    }
-
-    .delay-200 {
-      transition-delay: 0.2s;
-    }
-
-    .delay-300 {
-      transition-delay: 0.3s;
-    }
-
-    .delay-400 {
-      transition-delay: 0.4s;
-    }
-
-    .delay-600 {
-      transition-delay: 0.6s;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .pulse-effect {
-      animation: pulse 0.5s ease-in-out;
-    }
-
-    /* ========================================
-       HEADER E NAVEGAÇÃO
-       ======================================== */
-
-    .main-header {
-      background-color: var(--color-text-light);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem var(--space-unit);
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: var(--color-primary);
-      letter-spacing: -0.05em;
-    }
-
-    .main-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .main-nav a {
-      font-weight: 600;
-      padding: 0.5rem 0;
-      position: relative;
-      color: var(--color-text-dark);
-    }
-
-    .main-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-accent);
-      transition: width var(--transition-speed) ease-in-out;
-    }
-
-    .main-nav a:hover::after {
-      width: 100%;
-    }
-
-    /* ========================================
-       CARRINHO - BOTÃO
-       ======================================== */
-
-    .cart-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: var(--color-primary);
-      position: relative;
-      padding: 0.5rem;
-      transition: color var(--transition-speed);
-    }
-
-    .cart-button:hover {
-      color: var(--color-accent);
-    }
-
-    .cart-counter {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: var(--color-accent);
-      color: var(--color-text-dark);
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: translate(50%, -50%);
-      opacity: 0;
-      transition: opacity var(--transition-speed);
-    }
-
-    .cart-counter.active {
-      opacity: 1;
-    }
-
-    /* ========================================
-       CARRINHO - SIDEBAR
-       ======================================== */
-
-    .cart-sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      max-width: 350px;
-      height: 100%;
-      background-color: var(--color-text-light);
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      transform: translateX(100%);
-      transition: transform 0.4s ease-in-out;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      padding: 1.5rem;
-    }
-
-    .cart-sidebar.open {
-      transform: translateX(0);
-    }
-
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--color-border-subtle);
-    }
-
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--color-text-dark);
-    }
-
-    .cart-items-list {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding-right: 10px;
-    }
-
-    .empty-cart-message {
-      text-align: center;
-      color: #666666;
-      padding: 2rem 0;
-      font-weight: 500;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-bottom: 1px dashed var(--color-border-subtle);
-    }
-
-    .item-info h4 {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .item-info p {
-      font-size: 0.9rem;
-      color: #424242;
-    }
-
-    .remove-item {
-      background: none;
-      border: none;
-      color: #e57373;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-left: 10px;
-      transition: color var(--transition-speed);
-    }
-
-    .remove-item:hover {
-      color: #d32f2f;
-    }
-
-    .cart-footer {
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--color-border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .cart-total-info {
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .total-value {
-      color: var(--color-primary);
-    }
-
-    /* ========================================
-       MODAL DE CONFIRMAÇÃO ADICIONAR AO CARRINHO
-       ======================================== */
-
-    .add-to-cart-modal {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: var(--color-primary);
-      color: var(--color-text-light);
-      padding: 1rem 2rem;
-      border-radius: var(--border-radius-md);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(-20px);
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      z-index: 3000;
-      font-weight: 700;
-      font-family: var(--font-heading);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      max-width: 320px;
-    }
-
-    .add-to-cart-modal.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 
 <body>
-  <!-- ========================================
-       HEADER - NAVEGAÇÃO PRINCIPAL
-       ======================================== -->
-  <header class="main-header">
-    <div class="container nav-content">
-      <a href="#inicio" class="logo">Guias do Stargo</a>
 
-      <nav class="main-nav" aria-label="Navegação Principal do Site">
-        <ul>
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo"><i class="fas fa-compass"></i> Guias do <span>Stargo</span></a>
+      
+      <nav>
+        <ul class="nav-links" id="nav-links">
           <li><a href="#inicio">Início</a></li>
-          <li><a href="#guias">Guias</a></li>
+          <li><a href="#guias">Explorar Guias</a></li>
           <li><a href="#como-funciona">Como Funciona</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#contato">Suporte</a></li>
         </ul>
       </nav>
 
-      <button class="cart-button" aria-controls="cart-sidebar" aria-label="Abrir Carrinho de Compras" tabindex="0" onclick="toggleCartSidebar()">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-counter" class="cart-counter">0</span>
-      </button>
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- ========================================
-       SIDEBAR - CARRINHO DE COMPRAS
-       ======================================== -->
-  <aside id="cart-sidebar" class="cart-sidebar" aria-modal="true" role="dialog" aria-label="Carrinho de Compras">
-    <div class="cart-header">
-      <h3>🛒 Seu Carrinho</h3>
-      <button class="close-cart" aria-label="Fechar Carrinho" onclick="toggleCartSidebar()">×</button>
-    </div>
-    <div id="cart-items" class="cart-items-list">
-      <p class="empty-cart-message">Seu carrinho está vazio.</p>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-total-info">
-        <span>Total:</span>
-        <span id="cart-total-value" class="total-value">R$ 0,00</span>
-      </div>
-      <button class="btn btn-primary" id="checkout-btn" disabled onclick="finalizarCompra()">Finalizar Compra</button>
-      <button class="btn btn-secondary" id="clear-cart-btn" onclick="limparCarrinho()">Limpar Carrinho</button>
-    </div>
-  </aside>
-
-  <!-- ========================================
-       MAIN - CONTEÚDO PRINCIPAL
-       ======================================== -->
   <main>
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero fade-in">
+    <section id="inicio" class="hero">
       <div class="container">
-        <h1 class="hero-title">Transforme Estudo em Resultado Real</h1>
-        <p class="hero-subtitle">Guias absurdamente didáticos, criados com rigor pedagógico para capacitar você em qualquer prova ou exame.</p>
-        <a href="#guias" class="btn btn-primary btn-cta">Começar Agora</a>
-      </div>
-    </section>
+        <h1>Conhecimento <span class="hero-highlight">Ilimitado</span><br>Preço Simplificado.</h1>
+        <p>De manutenção de computadores a receitas culinárias. Guias práticos, organizados e diretos ao ponto sobre qualquer assunto.</p>
+        
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" id="search-input" placeholder="O que você quer aprender hoje? (Ex: Python, Bolo, Mecânica...)">
+        </div>
 
-    <hr />
-
-    <!-- PURPOSE SECTION -->
-    <section class="purpose-section fade-in">
-      <div class="container">
-        <h2 class="section-title">✨ Conhecimento Acessível, Sem Surpresas</h2>
-        <div class="purpose-content">
-          <article class="text-block">
-            <p>Nosso propósito é democratizar o acesso a materiais de estudo de altíssima qualidade. Acreditamos que o conhecimento rigorosamente organizado não deve ser um luxo.</p>
-          </article>
-          <article class="pricing-block">
-            <p class="price-highlight">
-              <span class="price-value">R$ 1,00</span>
-              <span class="price-detail">por Guia. Fixo e Transparente.</span>
-            </p>
-            <p class="detail-text">Preço único, sem descontos, promoções ou mensalidades. Acesso direto e honesto ao que realmente importa: seu aprendizado.</p>
-          </article>
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+          <button class="filter-btn" data-filter="cotidiano">Cotidiano</button>
+          <button class="filter-btn" data-filter="estudos">Estudos</button>
+          <button class="filter-btn" data-filter="carreira">Carreira</button>
         </div>
       </div>
     </section>
 
-    <hr />
-
-    <!-- BENEFITS SECTION -->
-    <section class="benefits-section fade-in">
+    <section id="guias" class="section-padding">
       <div class="container">
-        <h2 class="section-title">🧠 A Excelência Pedagógica que Você Merece</h2>
-        <div class="benefits-grid">
-          <div class="benefit-card slide-up">
-            <i class="fas fa-magic icon-lg"></i>
-            <h3>Clareza Mágica</h3>
-            <p>Transformamos conceitos complexos em mensagens simples, diretas e fáceis de assimilar.</p>
-          </div>
-
-          <div class="benefit-card slide-up delay-200">
-            <i class="fas fa-sitemap icon-lg"></i>
-            <h3>Organização Rigorosa</h3>
-            <p>Conteúdo estruturado para otimizar a memorização e a construção lógica do conhecimento.</p>
-          </div>
-
-          <div class="benefit-card slide-up delay-400">
-            <i class="fas fa-tools icon-lg"></i>
-            <h3>Aplicação Prática</h3>
-            <p>Foco total no como fazer. Prepare-se para aplicar o que aprendeu na vida real ou em provas.</p>
-          </div>
-
-          <div class="benefit-card slide-up delay-600">
-            <i class="fas fa-globe-americas icon-lg"></i>
-            <h3>Acessível a Todos</h3>
-            <p>Linguagem pensada para iniciantes, mas com a profundidade que o nível avançado exige.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr />
-
-    <!-- GUIDES SECTION -->
-    <section id="guias" class="guides-section fade-in">
-      <div class="container">
-        <h2 class="section-title">📚 Escolha seus Guias por R$1</h2>
-        <div id="guides-grid" class="guides-grid">
-          <!-- Guia 1: Formatação de PC -->
-          <article class="guide-card slide-up" data-id="form_pc" data-name="Manual de Formatação de PC" data-price="1.00">
-            <i class="fas fa-laptop-code icon-md"></i>
-            <h3 class="guide-title">Manual de Formatação de PC</h3>
-            <p class="guide-description">Guia definitivo, da instalação do SO à resolução de erros. Linguagem clara e acessível para todos os níveis. Domine seu computador!</p>
-            <div class="guide-footer">
-              <span class="guide-price">R$ 1,00</span>
-              <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Manual de Formatação de PC ao Carrinho">Adicionar ao Carrinho</button>
+        <div class="guides-grid" id="guides-grid">
+          <article class="card" data-category="tecnologia" data-title="Manual de Formatação de PC">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="card-category">Tecnologia</div>
+            <h3>Manual de Formatação de PC</h3>
+            <p>Guia definitivo: instalação do Windows/Linux, drivers e backup. Recupere seu computador hoje.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('001', 'Manual de Formatação de PC', 1.00)"><i class="fas fa-plus"></i></button>
             </div>
           </article>
 
-          <!-- Guia 2: Construção de Celular -->
-          <article class="guide-card slide-up delay-100" data-id="build_cel" data-name="Guia Completo de Construção de Celular" data-price="1.00">
-            <i class="fas fa-mobile-alt icon-md"></i>
-            <h3 class="guide-title">Guia Completo de Construção de Celular</h3>
-            <p class="guide-description">Detalha cada componente e etapa de montagem de um celular. Recursos visuais que facilitam o aprendizado prático e profundo.</p>
-            <div class="guide-footer">
-              <span class="guide-price">R$ 1,00</span>
-              <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Guia Completo de Construção de Celular ao Carrinho">Adicionar ao Carrinho</button>
+          <article class="card" data-category="tecnologia" data-title="Montagem de Smartphones">
+            <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="card-category">Tecnologia</div>
+            <h3>Montagem de Smartphones</h3>
+            <p>Aprenda a anatomia do celular. Troca de tela, bateria e componentes internos com segurança.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('002', 'Montagem de Smartphones', 1.00)"><i class="fas fa-plus"></i></button>
             </div>
           </article>
 
-          <!-- Guia 3: Português para Concursos -->
-          <article class="guide-card slide-up delay-200" data-id="concurso_port" data-name="Português para Concursos Nível A1" data-price="1.00">
-            <i class="fas fa-pen-nib icon-md"></i>
-            <h3 class="guide-title">Português para Concursos Nível A1</h3>
-            <p class="guide-description">Simplifique a gramática para gabaritar sua prova. Foco absoluto no que realmente cai em concursos, sem enrolação.</p>
-            <div class="guide-footer">
-              <span class="guide-price">R$ 1,00</span>
-              <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Português para Concursos Nível A1 ao Carrinho">Adicionar ao Carrinho</button>
+          <article class="card" data-category="cotidiano" data-title="Mecânica Básica para Motoristas">
+            <div class="card-icon"><i class="fas fa-car"></i></div>
+            <div class="card-category">Cotidiano</div>
+            <h3>Mecânica Básica para Motoristas</h3>
+            <p>Não seja enganado na oficina. Entenda o motor, troca de óleo e sinais de alerta do painel.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('003', 'Mecânica Básica', 1.00)"><i class="fas fa-plus"></i></button>
             </div>
           </article>
 
-          <!-- Guia 4: Física ENEM -->
-          <article class="guide-card slide-up delay-300" data-id="enem_fisica" data-name="Física Descomplicada para o ENEM" data-price="1.00">
-            <i class="fas fa-atom icon-md"></i>
-            <h3 class="guide-title">Física Descomplicada para o ENEM</h3>
-            <p class="guide-description">Chega de medo de fórmulas. Aprenda os conceitos chave e resolva as questões mais difíceis com nossa didática inigualável.</p>
-            <div class="guide-footer">
-              <span class="guide-price">R$ 1,00</span>
-              <button class="btn btn-secondary add-to-cart" aria-label="Adicionar Física Descomplicada para o ENEM ao Carrinho">Adicionar ao Carrinho</button>
+          <article class="card" data-category="estudos" data-title="Física para ENEM e Vestibulares">
+            <div class="card-icon"><i class="fas fa-atom"></i></div>
+            <div class="card-category">Estudos</div>
+            <h3>Física Descomplicada</h3>
+            <p>Conceitos chave de cinemática e elétrica explicados sem "fiquês". Ideal para revisão rápida.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('004', 'Física Descomplicada', 1.00)"><i class="fas fa-plus"></i></button>
             </div>
           </article>
-        </div>
 
-        <div class="cta-bottom">
-          <p>Milhares de guias esperando para simplificar seu estudo.</p>
-          <a href="#como-funciona" class="btn btn-primary">Ver Como Funciona</a>
+           <article class="card" data-category="cotidiano" data-title="Culinária: Massas Artesanais">
+            <div class="card-icon"><i class="fas fa-utensils"></i></div>
+            <div class="card-category">Cotidiano</div>
+            <h3>Massas Artesanais em Casa</h3>
+            <p>Faça macarrão, nhoque e lasanha do zero. Guia passo-a-passo com dicas de molhos.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('005', 'Massas Artesanais', 1.00)"><i class="fas fa-plus"></i></button>
+            </div>
+          </article>
+
+           <article class="card" data-category="carreira" data-title="Excel para o Mercado de Trabalho">
+            <div class="card-icon"><i class="fas fa-table"></i></div>
+            <div class="card-category">Carreira</div>
+            <h3>Excel Essencial</h3>
+            <p>Domine as fórmulas que as empresas realmente pedem. Tabela dinâmica e PROCV em 10 minutos.</p>
+            <div class="card-footer">
+              <span class="price-tag">R$ 1,00</span>
+              <button class="add-btn" onclick="addToCart('006', 'Excel Essencial', 1.00)"><i class="fas fa-plus"></i></button>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <hr />
-
-    <!-- HOW IT WORKS SECTION -->
-    <section id="como-funciona" class="how-it-works-section fade-in">
-      <div class="container">
-        <h2 class="section-title">🎯 Sua Jornada em 3 Passos Simples</h2>
-        <div class="steps-grid">
-          <div class="step-card slide-up">
-            <span class="step-number">1</span>
-            <h3>Escolha e Adicione</h3>
-            <p>Navegue pela galeria de guias e adicione ao carrinho todos aqueles que irão turbinar seu conhecimento.</p>
+    <section id="como-funciona" style="background-color: white;" class="section-padding">
+      <div class="container" style="text-align: center;">
+        <h2 style="margin-bottom: 3rem;">Por que Guias do Stargo?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <i class="fas fa-layer-group" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+            <h3>Hiper Organizado</h3>
+            <p>Nada de enrolação. Conteúdo estruturado logicamente para aprendizado rápido.</p>
           </div>
-
-          <div class="step-card slide-up delay-200">
-            <span class="step-number">2</span>
-            <h3>Revise e Pague</h3>
-            <p>No carrinho, confira seus R$1 por guia, clique em "Finalizar Compra" e realize o pagamento de forma segura e transparente.</p>
+          <div>
+            <i class="fas fa-coins" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+            <h3>Preço Único R$1</h3>
+            <p>Democratização real. Sem assinaturas escondidas, sem preços dinâmicos.</p>
           </div>
-
-          <div class="step-card slide-up delay-400">
-            <span class="step-number">3</span>
-            <h3>Acesso Imediato</h3>
-            <p>O conteúdo é seu! Acesse seus guias rigorosamente organizados e comece a aprender imediatamente.</p>
+          <div>
+            <i class="fas fa-infinity" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+            <h3>Qualquer Assunto</h3>
+            <p>Nossa biblioteca cresce todo dia com tópicos técnicos, acadêmicos e hobbies.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <hr />
-
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials-section fade-in">
-      <div class="container">
-        <h2 class="section-title">🗣️ Quem Já Aprendeu Simplificado</h2>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial-card slide-up">
-            <p>"A didática é incrível. Finalmente entendi a matéria que me travava há meses. O R$1 mais bem investido!"</p>
-            <footer>— Ana C., Estudante de Direito</footer>
-          </blockquote>
-
-          <blockquote class="testimonial-card slide-up delay-200">
-            <p>"Simples, direto e sem jargões. Formatei meu notebook seguindo o manual sem NENHUM erro. Recomendo!"</p>
-            <footer>— João V., Analista de Sistemas</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <hr />
-
-    <!-- CONTACT SECTION -->
-    <section id="contato" class="contact-section fade-in">
-      <div class="container">
-        <h2 class="section-title">✉️ Fale Conosco</h2>
-        <p class="subtitle-contact">Tire suas dúvidas ou envie sugestões. Estamos aqui para ajudar sua jornada de aprendizado.</p>
-
-        <form id="contact-form" class="contact-form">
-          <div class="form-group">
-            <label for="name">Seu Nome:</label>
-            <input type="text" id="name" name="name" required aria-required="true" placeholder="Ex: Maria da Silva" />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Seu E-mail:</label>
-            <input type="email" id="email" name="email" required aria-required="true" placeholder="seu.email@exemplo.com" />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Mensagem:</label>
-            <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Sua dúvida ou sugestão..."></textarea>
-          </div>
-
+    <section id="contato" class="section-padding" style="background: var(--bg-body);">
+      <div class="container" style="max-width: 600px; text-align: center;">
+        <h2>Dúvidas ou Sugestões?</h2>
+        <p style="margin-bottom: 2rem;">Quer sugerir um novo guia? Mande pra gente.</p>
+        <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="text" placeholder="Seu Nome" required style="padding: 1rem; border-radius: var(--radius); border: 1px solid #ddd;">
+          <input type="email" placeholder="Seu E-mail" required style="padding: 1rem; border-radius: var(--radius); border: 1px solid #ddd;">
+          <textarea rows="4" placeholder="Sua Mensagem" required style="padding: 1rem; border-radius: var(--radius); border: 1px solid #ddd;"></textarea>
           <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-          <p id="form-feedback" class="form-feedback" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- ========================================
-       FOOTER - RODAPÉ
-       ======================================== -->
-  <footer class="main-footer">
-    <div class="container footer-content">
-      <div class="footer-links">
-        <a href="#">Termos de Uso</a>
-        <a href="#">Política de Privacidade</a>
-        <a href="#contato">Suporte</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color: white; margin-bottom: 1rem;"><i class="fas fa-compass"></i> Guias do Stargo</div>
+          <p style="color: #94a3b8;">Sua enciclopédia prática e acessível. Conhecimento não precisa ser caro, precisa ser útil.</p>
+        </div>
+        <div>
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Meus Pedidos</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Redes</h4>
+          <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
       </div>
-      <p class="copyright">&copy; 2025 Guias do Stargo. Democratizando o conhecimento com excelência.</p>
-      <div class="social-icons">
-        <a href="#" aria-label="Guias do Stargo no Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Guias do Stargo no Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Guias do Stargo no Twitter"><i class="fab fa-twitter"></i></a>
+      <div class="copyright">
+        &copy; 2025 Guias do Stargo. Todos os direitos reservados.
       </div>
     </div>
   </footer>
 
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag"></i> Seu Carrinho</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; font-size: 1.5rem; cursor:pointer;">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+        <i class="fas fa-basket-shopping" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+        <p>Seu carrinho está vazio.</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>Total</span>
+        <span id="cart-total">R$ 0,00</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Finalizar Compra</button>
+      <button onclick="clearCart()" style="width: 100%; margin-top: 0.5rem; background: none; border: none; color: var(--text-muted); cursor: pointer; text-decoration: underline;">Limpar carrinho</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i> <span id="toast-msg">Item adicionado!</span>
+  </div>
+
   <script>
-    // JavaScript completo integrado
-    document.addEventListener('DOMContentLoaded', () => {
+    /* --- Lógica Javascript Modular --- */
+    
+    // Estado Global
+    let cart = JSON.parse(localStorage.getItem('stargo_cart')) || [];
+    
+    // Elementos DOM
+    const els = {
+      cartCount: document.getElementById('cart-count'),
+      cartBody: document.getElementById('cart-body'),
+      cartTotal: document.getElementById('cart-total'),
+      cartSidebar: document.getElementById('cart-sidebar'),
+      cartOverlay: document.getElementById('cart-overlay'),
+      toast: document.getElementById('toast'),
+      toastMsg: document.getElementById('toast-msg'),
+      searchInput: document.getElementById('search-input'),
+      filters: document.querySelectorAll('.filter-btn'),
+      cards: document.querySelectorAll('.card'),
+      mobileMenu: document.getElementById('nav-links')
+    };
 
-      let cart = [];
-      const CART_STORAGE_KEY = 'saberSimplesCart';
+    // --- Carrinho Functions ---
 
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalValue = document.getElementById('cart-total-value');
-      const cartCounter = document.getElementById('cart-counter');
-      const checkoutBtn = document.getElementById('checkout-btn');
+    function updateCartUI() {
+      // Atualiza contador
+      els.cartCount.innerText = cart.length;
+      
+      // Atualiza Total
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      els.cartTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
 
-      const guideCards = document.querySelectorAll('.guide-card');
-
-      const contactForm = document.getElementById('contact-form');
-      const formFeedback = document.getElementById('form-feedback');
-
-      // Modal de confirmação ao adicionar ao carrinho
-      const addToCartModal = document.createElement('div');
-      addToCartModal.id = 'addToCartModal';
-      addToCartModal.className = 'add-to-cart-modal';
-      addToCartModal.setAttribute('role', 'alert');
-      addToCartModal.setAttribute('aria-live', 'assertive');
-      addToCartModal.setAttribute('aria-atomic', 'true');
-      addToCartModal.style.display = 'none';
-      document.body.appendChild(addToCartModal);
-
-      function showAddToCartModal(message) {
-        addToCartModal.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
-        addToCartModal.style.display = 'flex';
-        addToCartModal.classList.add('show');
-
-        setTimeout(() => {
-          addToCartModal.classList.remove('show');
-          setTimeout(() => {
-            addToCartModal.style.display = 'none';
-          }, 400);
-        }, 3000);
-      }
-
-      function loadCart() {
-        const storedCart = localStorage.getItem(CART_STORAGE_KEY);
-        if (storedCart) {
-          cart = JSON.parse(storedCart);
-        }
-        updateCartUI();
-      }
-
-      function saveCart() {
-        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-      }
-
-      function calcularTotalCarrinho() {
-        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-      }
-
-      function adicionarAoCarrinho(id, name, price) {
-        const existingItem = cart.find(item => item.id === id);
-
-        if (existingItem) {
-          alert(`O guia "${name}" já está no seu carrinho.`);
-          return;
-        }
-
-        cart.push({
-          id,
-          name,
-          price,
-          quantity: 1
-        });
-
-        const cartBtn = document.querySelector('.cart-button');
-        cartBtn.classList.add('pulse-effect');
-        setTimeout(() => cartBtn.classList.remove('pulse-effect'), 500);
-
-        showAddToCartModal(`"${name}" adicionado ao carrinho!`);
-
-        saveCart();
-        updateCartUI();
-        toggleCartSidebar(true);
-      }
-
-      function removerDoCarrinho(id) {
-        cart = cart.filter(item => item.id !== id);
-        saveCart();
-        updateCartUI();
-      }
-
-      function limparCarrinho() {
-        if (confirm("Tem certeza que deseja limpar todo o carrinho?")) {
-          cart = [];
-          saveCart();
-          updateCartUI();
-        }
-      }
-
-      function updateCartUI() {
-        const total = calcularTotalCarrinho();
-        const totalItems = cart.length;
-
-        cartTotalValue.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        cartCounter.textContent = totalItems;
-        cartCounter.classList.toggle('active', totalItems > 0);
-
-        cartItemsContainer.innerHTML = '';
-
-        if (totalItems === 0) {
-          cartItemsContainer.innerHTML = '<p class="empty-cart-message">Seu carrinho está vazio.</p>';
-          checkoutBtn.disabled = true;
-        } else {
-          cart.forEach(item => {
-            const itemElement = document.createElement('div');
-            itemElement.classList.add('cart-item');
-            itemElement.innerHTML = `
-                    <div class="item-info">
-                        <h4>${item.name}</h4>
-                        <p>1 x R$ ${item.price.toFixed(2).replace('.', ',')}</p>
-                    </div>
-                    <button class="remove-item" aria-label="Remover ${item.name}" data-id="${item.id}">×</button>
-                `;
-            cartItemsContainer.appendChild(itemElement);
-          });
-          checkoutBtn.disabled = false;
-        }
-      }
-
-      window.toggleCartSidebar = (forceOpen = false) => {
-        const isOpen = cartSidebar.classList.contains('open');
-
-        if (forceOpen || !isOpen) {
-          cartSidebar.classList.add('open');
-          cartSidebar.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        } else {
-          cartSidebar.classList.remove('open');
-          cartSidebar.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        }
-      };
-
-      window.finalizarCompra = () => {
-        if (cart.length === 0) {
-          alert('Seu carrinho está vazio. Adicione guias antes de finalizar a compra!');
-          return;
-        }
-
-        const total = calcularTotalCarrinho().toFixed(2).replace('.', ',');
-        const itemsList = cart.map(item =>
-          `- ${item.name} (R$ ${item.price.toFixed(2).replace('.', ',')})`
-        ).join('\n');
-
-        const confirmationMessage = `
-Resumo da Compra:
-${itemsList}
-
-Total a Pagar: R$ ${total}
-
-Confirma a finalização da compra? (Simulação)
-            `;
-
-        if (confirm(confirmationMessage)) {
-          alert('✅ Pedido finalizado com sucesso! (Simulação de pagamento). Você receberá os guias em seu e-mail.');
-
-          cart = [];
-          saveCart();
-          updateCartUI();
-          toggleCartSidebar(false);
-        }
-      };
-
-      window.limparCarrinho = limparCarrinho;
-
-      cartItemsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('remove-item')) {
-          const idToRemove = e.target.getAttribute('data-id');
-          removerDoCarrinho(idToRemove);
-        }
-      });
-
-      guideCards.forEach(card => {
-        const addButton = card.querySelector('.add-to-cart');
-        const id = card.getAttribute('data-id');
-        const name = card.getAttribute('data-name');
-        const price = parseFloat(card.getAttribute('data-price'));
-
-        card.addEventListener('mouseenter', () => {
-          card.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.05)';
-        });
-
-        addButton.addEventListener('click', (e) => {
-          e.preventDefault();
-          adicionarAoCarrinho(id, name, price);
-        });
-      });
-
-      // Scroll animations
-      if ('IntersectionObserver' in window) {
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in, .slide-up').forEach(element => {
-          observer.observe(element);
-        });
+      // Renderiza Itens
+      if (cart.length === 0) {
+        els.cartBody.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+            <i class="fas fa-basket-shopping" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+            <p>Seu carrinho está vazio.</p>
+          </div>`;
       } else {
-        document.querySelectorAll('.fade-in, .slide-up').forEach(element => {
-          element.classList.add('visible');
-        });
+        els.cartBody.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+            </div>
+            <button class="cart-remove" onclick="removeFromCart('${item.id}')">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `).join('');
       }
+      
+      // Salva
+      localStorage.setItem('stargo_cart', JSON.stringify(cart));
+    }
 
-      // Smooth scrolling
-      document.querySelectorAll('.main-nav a, .logo, .btn-cta').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              const headerHeight = document.querySelector('.main-header').offsetHeight;
-              window.scrollTo({
-                top: targetElement.offsetTop - headerHeight,
-                behavior: 'smooth'
-              });
-            }
-          }
-        });
-      });
+    window.addToCart = (id, name, price) => {
+      if (cart.find(item => item.id === id)) {
+        showToast(`"${name}" já está no carrinho!`, true);
+        return;
+      }
+      cart.push({ id, name, price });
+      updateCartUI();
+      toggleCart(true); // Abre o carrinho automaticamente
+      showToast(`"${name}" adicionado!`);
+    };
 
-      // Contact form validation and feedback
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
+    window.removeFromCart = (id) => {
+      cart = cart.filter(item => item.id !== id);
+      updateCartUI();
+    };
 
-        if (name === "" || email === "") {
-          formFeedback.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-          formFeedback.style.color = '#d32f2f';
-          return;
+    window.clearCart = () => {
+      if(confirm('Limpar todo o carrinho?')) {
+        cart = [];
+        updateCartUI();
+      }
+    };
+
+    window.checkout = () => {
+      if (cart.length === 0) return alert("Carrinho vazio!");
+      alert(`Redirecionando para pagamento de R$ ${cart.length},00... (Simulação)`);
+      cart = [];
+      updateCartUI();
+      toggleCart();
+    };
+
+    window.toggleCart = (forceOpen = null) => {
+      const isOpen = els.cartSidebar.classList.contains('open');
+      const shouldOpen = forceOpen !== null ? forceOpen : !isOpen;
+      
+      if (shouldOpen) {
+        els.cartSidebar.classList.add('open');
+        els.cartOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      } else {
+        els.cartSidebar.classList.remove('open');
+        els.cartOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    // --- UI Interactions ---
+
+    function showToast(msg, isError = false) {
+      els.toastMsg.innerText = msg;
+      els.toast.querySelector('i').className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+      els.toast.style.backgroundColor = isError ? '#ef4444' : 'var(--primary)';
+      els.toast.classList.add('show');
+      setTimeout(() => els.toast.classList.remove('show'), 3000);
+    }
+
+    window.toggleMenu = () => {
+      els.mobileMenu.classList.toggle('active');
+    };
+
+    // --- Search & Filter Logic ---
+
+    function filterCards() {
+      const term = els.searchInput.value.toLowerCase();
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+      els.cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const category = card.dataset.category;
+        
+        const matchesSearch = title.includes(term);
+        const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
         }
-
-        formFeedback.textContent = '📧 Mensagem enviada com sucesso! Em breve entraremos em contato.';
-        formFeedback.style.color = '#ffb300';
-
-        contactForm.reset();
-
-        setTimeout(() => {
-          formFeedback.textContent = '';
-        }, 5000);
       });
+    }
 
-      // Initialize cart from storage
-      loadCart();
+    els.searchInput.addEventListener('input', filterCards);
+
+    els.filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        filterCards();
+      });
     });
+
+    // Form Handling
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Mensagem enviada com sucesso!');
+      e.target.reset();
+    });
+
+    // Init
+    updateCartUI();
+
   </script>
-
-  <style>
-    /* Modal estilizado para confirmação de adição ao carrinho */
-    .add-to-cart-modal {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: var(--color-primary);
-      color: var(--color-text-light);
-      padding: 1rem 2rem;
-      border-radius: var(--border-radius-md);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(-20px);
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      z-index: 3000;
-      font-weight: 700;
-      font-family: var(--font-heading);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      max-width: 320px;
-    }
-
-    .add-to-cart-modal.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-  </style>
 </body>
-
 </html>
